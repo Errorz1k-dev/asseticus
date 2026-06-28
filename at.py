@@ -12,16 +12,31 @@ def generate_image_table():
     images = sorted([f for f in os.listdir(assets_dir) if f.lower().endswith(valid_extensions)])
     
     columns = 3
-    table_lines = ["| Image | Name | Image | Name | Image | Name |", "| --- | --- | --- | --- | --- | --- |"]
+    table_lines = [
+        "| | | |",
+        "| --- | --- | --- |"
+    ]
     
+    # Process images in chunks of 3 to build name rows and image rows alternately
     for i in range(0, len(images), columns):
         row_images = images[i:i+columns]
-        row_str = "|"
+        
+        # Row 1: Names
+        name_row = "|"
         for img in row_images:
-            row_str += f" <img src='./{img}' width='100'> | `{img}` |"
+            name_row += f" `{img}` |"
         if len(row_images) < columns:
-            row_str += " | |" * (columns - len(row_images))
-        table_lines.append(row_str)
+            name_row += " |" * (columns - len(row_images))
+            
+        # Row 2: Images directly below names
+        img_row = "|"
+        for img in row_images:
+            img_row += f" <img src='./{img}' width='100'> |"
+        if len(row_images) < columns:
+            img_row += " |" * (columns - len(row_images))
+            
+        table_lines.append(name_row)
+        table_lines.append(img_row)
     
     table_content = "\n".join(table_lines)
 
@@ -33,7 +48,6 @@ def generate_image_table():
 
     if target_heading in content:
         parts = content.split(target_heading, 1)
-        # Keeps everything before the heading, clears previous auto-generated tables directly under it
         new_content = f"{parts[0]}{target_heading}\n\n{table_content}\n"
     else:
         new_content = f"{content}\n\n{target_heading}\n\n{table_content}\n"
