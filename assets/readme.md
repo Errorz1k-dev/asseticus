@@ -1,2 +1,3 @@
 # **different assets for my projects**
-!(/assets/images/smoky.png)
+!(https://github.com/Errorz1k-dev/asseticus/blob/main/assets/smoky.jpg)
+!(https://github.com/Errorz1k-dev/asseticus/blob/main/assets/smoker.jpg)
