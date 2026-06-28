@@ -1,3 +1,3 @@
-fuck everyone except me :3
+# **fuck** everyone except me :3
 
-/meow/ everyone
+## *meow* everyone
