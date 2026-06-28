@@ -30,8 +30,8 @@ table_html += "</table>"
 with open(README_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
-START_MARKER = ""
-END_MARKER = ""
+START_MARKER = "''t"
+END_MARKER = "t''"
 
 if START_MARKER in content and END_MARKER in content:
     before = content.split(START_MARKER)[0]
