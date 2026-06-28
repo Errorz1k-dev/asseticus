@@ -1,8 +1,9 @@
 import os
 
-IMAGE_DIR = "assets"  # Folder containing your images
-README_PATH = "assets/readme.md"
-COLUMNS = 3  # Adjust how many columns you want in your table
+# Moving up one level to look inside the repository root
+IMAGE_DIR = "../assets"  
+README_PATH = "../README.md"
+COLUMNS = 3  
 
 extensions = (".png", ".jpg", ".jpeg", ".gif", ".webp")
 
@@ -18,7 +19,8 @@ for i in range(0, len(images), COLUMNS):
     table_html += "  <tr>\n"
     for j in range(COLUMNS):
         if i + j < len(images):
-            img_path = f"{IMAGE_DIR}/{images[i+j]}"
+            # The HTML path in the README still needs to point to "assets/..." relative to the README location
+            img_path = f"assets/{images[i+j]}"
             table_html += f'    <td align="center"><img src="{img_path}" width="200px"/><br/><b>{images[i+j]}</b></td>\n'
         else:
             table_html += "    <td></td>\n"
@@ -38,6 +40,6 @@ if START_MARKER in content and END_MARKER in content:
     
     with open(README_PATH, "w", encoding="utf-8") as f:
         f.write(new_content)
-    print("Success: README.md image table updated locally.")
+    print("Success: README.md image table updated via scripts folder.")
 else:
     print("Error: Could not find markers in README.md")
