@@ -1,11 +1,11 @@
 import os
 
-# Get the directory where this script file lives (repo/scripts/)
+# Get the directory where this script file lives (root/scripts/)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Both your images and README are inside the assets folder
-IMAGE_DIR = os.path.join(SCRIPT_DIR, "..", "assets")
-README_PATH = os.path.join(SCRIPT_DIR, "..", "assets", "README.md") # Fixed path
+# Define paths correctly based on root/assets/
+IMAGE_DIR = os.path.normpath(os.path.join(SCRIPT_DIR, "..", "assets"))
+README_PATH = os.path.normpath(os.path.join(SCRIPT_DIR, "..", "assets", "README.md"))
 COLUMNS = 3  
 
 extensions = (".png", ".jpg", ".jpeg", ".gif", ".webp")
@@ -22,8 +22,8 @@ for i in range(0, len(images), COLUMNS):
     table_html += "  <tr>\n"
     for j in range(COLUMNS):
         if i + j < len(images):
-            # Since README.md is in the same folder as the images, 
-            # the HTML path is just the image filename itself.
+            # Since the README is inside assets/ alongside the images,
+            # the source path is just the filename.
             img_path = images[i+j]
             table_html += f'    <td align="center"><img src="{img_path}" width="200px"/><br/><b>{images[i+j]}</b></td>\n'
         else:
@@ -35,16 +35,14 @@ with open(README_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
 # Using your 't' markers
-START_MARKER = "<--,.-->"
-END_MARKER = "<--.,-->"
+START_MARKER = ",.,.,"
 
 if START_MARKER in content:
-    # If using the exact same tag for start and end, split carefully
     parts = content.split(START_MARKER)
     if len(parts) >= 3:
         before = parts[0]
         after = parts[2]
-        new_content = f"{before}{START_MARKER}\n{table_html}\n{END_MARKER}{after}"
+        new_content = f"{before}{START_MARKER}\n{table_html}\n{START_MARKER}{after}"
         
         with open(README_PATH, "w", encoding="utf-8") as f:
             f.write(new_content)
