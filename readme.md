@@ -1,5 +1,5 @@
 <div align="center">
 
-# **fuck** everyone, except me :3
+# **fuck** everyone :3
 
 </div>
