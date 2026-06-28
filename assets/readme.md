@@ -4,19 +4,23 @@
 
 <table>
   <tr>
-    <td colspan="3" align="center" style="font-weight: bold;">Errorz1k1.png | cutie1.jpg | cutie2.jpg</td>
+    <td align="center"><b>Errorz1k.png</b></td>
+    <td align="center"><b>cutie1.jpg</b></td>
+    <td align="center"><b>cutie2.jpg</b></td>
   </tr>
   <tr>
-    <td><img src="./Errorz1k1.png" width="250"></td>
-    <td><img src="./cutie1.jpg" width="250"></td>
-    <td><img src="./cutie2.jpg" width="250"></td>
+    <td align="center"><img src="./Errorz1k.png" width="250"></td>
+    <td align="center"><img src="./cutie1.jpg" width="250"></td>
+    <td align="center"><img src="./cutie2.jpg" width="250"></td>
   </tr>
   <tr>
-    <td colspan="3" align="center" style="font-weight: bold;">shrek_smith.jpg | smoker.jpg | smoky.jpg</td>
+    <td align="center"><b>shrek_smith.jpg</b></td>
+    <td align="center"><b>smoker.jpg</b></td>
+    <td align="center"><b>smoky.jpg</b></td>
   </tr>
   <tr>
-    <td><img src="./shrek_smith.jpg" width="250"></td>
-    <td><img src="./smoker.jpg" width="250"></td>
-    <td><img src="./smoky.jpg" width="250"></td>
+    <td align="center"><img src="./shrek_smith.jpg" width="250"></td>
+    <td align="center"><img src="./smoker.jpg" width="250"></td>
+    <td align="center"><img src="./smoky.jpg" width="250"></td>
   </tr>
 </table>
