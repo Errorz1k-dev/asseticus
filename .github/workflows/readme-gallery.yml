@@ -27,6 +27,6 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add README.md
-        git diff-index --quiet HEAD || git commit -m "chore: auto-update image table in README"
+        git add assets/README.md # Updated path here
+        git diff-index --quiet HEAD || git commit -m "chore: auto-update image table in assets/README"
         git push
