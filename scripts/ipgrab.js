@@ -1,6 +1,6 @@
 // Configuration - Replace with your actual credentials securely
-const TELEGRAM_TOKEN = '8685754701:AAFPICFAVcUeSYmXzj__A3j-OXpJQEAVnvs';
-const CHAT_ID = '6013637983';
+const TELEGRAM_TOKEN = process.env.bot-misc;
+const CHAT_ID = process.env.tg-id;
 
 /**
  * Sends the collected IP address to the designated Telegram bot
