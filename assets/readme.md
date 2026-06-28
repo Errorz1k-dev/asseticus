@@ -1,4 +1,6 @@
 # **different assets for my projects**
-| ![smoky](https://github.com/Errorz1k-dev/asseticus/blob/main/assets/smoky.jpg) | ![smoker](https://github.com/Errorz1k-dev/asseticus/blob/main/assets/smoker.jpg) | ![shreksmith](https://github.com/Errorz1k-dev/asseticus/blob/main/assets/shrek_smith.jpg) |
-| --- | --- | --- |
-| ![cutie1](https://github.com/Errorz1k-dev/asseticus/blob/main/assets/cutie1.jpg) | ![cutie2](https://github.com/Errorz1k-dev/asseticus/blob/main/assets/cutie2.jpg) |
+
+| Image | Name | Image | Name | Image | Name |
+| --- | --- | --- | --- | --- | --- |
+| <img src='./cutie1.jpg' width='100'> | `cutie1.jpg` | <img src='./cutie2.jpg' width='100'> | `cutie2.jpg` | <img src='./shrek_smith.jpg' width='100'> | `shrek_smith.jpg` |
+| <img src='./smoker.jpg' width='100'> | `smoker.jpg` | <img src='./smoky.jpg' width='100'> | `smoky.jpg` | | |
