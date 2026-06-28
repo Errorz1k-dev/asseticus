@@ -9,34 +9,42 @@ def generate_image_table():
         os.makedirs(assets_dir)
 
     valid_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
-    images = sorted([f for f in os.listdir(assets_dir) if f.lower().endswith(valid_extensions)])
+    images = []
+
+    for root, _, files in os.walk(assets_dir):
+        for file in files:
+            if file.lower().endswith(valid_extensions):
+                relative_path = os.path.relpath(os.path.join(root, file), assets_dir)
+                relative_path = relative_path.replace(os.sep, '/')
+                images.append(relative_path)
+                
+    images.sort()
     
     columns = 3
-    table_lines = [
-        "| | | |",
-        "| --- | --- | --- |"
-    ]
+    table_lines = ["<table>"]
     
     for i in range(0, len(images), columns):
         row_images = images[i:i+columns]
         
-        # Row 1: Names
-        name_row = "|"
+        # Path string for the group (e.g., "folder/image.png" or "img1.png | img2.png")
+        path_label = " | ".join(row_images)
+        
+        # Row 1: Spanned Header for names/paths
+        table_lines.append(f'  <tr>\n    <td colspan="{columns}" align="center" style="font-weight: bold;">{path_label}</td>\n  </tr>')
+        
+        # Row 2: Images
+        img_cells = []
         for img in row_images:
-            name_row += f" **{img}** |"
-        if len(row_images) < columns:
-            name_row += " |" * (columns - len(row_images))
+            img_cells.append(f'    <td><img src="./{img}" width="250"></td>')
             
-        # Row 2: Images (Using width='250' to make them larger)
-        img_row = "|"
-        for img in row_images:
-            img_row += f" <img src='./{img}' width='250'> |"
+        # Pad empty cells if columns are not filled completely
         if len(row_images) < columns:
-            img_row += " |" * (columns - len(row_images))
-            
-        table_lines.append(name_row)
-        table_lines.append(img_row)
-    
+            for _ in range(columns - len(row_images)):
+                img_cells.append('    <td></td>')
+                
+        table_lines.append("  <tr>\n" + "\n".join(img_cells) + "\n  </tr>")
+        
+    table_lines.append("</table>")
     table_content = "\n".join(table_lines)
 
     if os.path.exists(readme_path):
