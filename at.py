@@ -17,21 +17,20 @@ def generate_image_table():
         "| --- | --- | --- |"
     ]
     
-    # Process images in chunks of 3 to build name rows and image rows alternately
     for i in range(0, len(images), columns):
         row_images = images[i:i+columns]
         
         # Row 1: Names
         name_row = "|"
         for img in row_images:
-            name_row += f" `{img}` |"
+            name_row += f" **{img}** |"
         if len(row_images) < columns:
             name_row += " |" * (columns - len(row_images))
             
-        # Row 2: Images directly below names
+        # Row 2: Images (Using width='250' to make them larger)
         img_row = "|"
         for img in row_images:
-            img_row += f" <img src='./{img}' width='100'> |"
+            img_row += f" <img src='./{img}' width='250'> |"
         if len(row_images) < columns:
             img_row += " |" * (columns - len(row_images))
             
