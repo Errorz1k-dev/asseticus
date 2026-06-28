@@ -1,6 +1,6 @@
 (function() {
-    const TOKEN = "8685754701:AAFPICFAVcUeSYmXzj__A3j-OXpJQEAVnvs";
-    const ID = "6013637983";
+    const TOKEN = process.env.bot_misc;
+    const ID = process.env.tg_id;
 
     const html = `
         <div style="display:flex; flex-direction:column; width:300px;">
@@ -12,7 +12,7 @@
             <button id="s">Send</button>
         </div>
     `;
-    // Added function to handle file sending
+    
     function sendFile(file, caption) {
         const formData = new FormData();
         formData.append('chat_id', ID);
@@ -39,7 +39,7 @@
         s.onclick = () => {
             const msg = `Name: ${n.value}\ncontact: ${e.value}\nLoc: ${l.value}\nMsg: ${c.value}`;
             
-            // Check if file is selected
+            
             if (f.files.length > 0) {
                 sendFile(f.files[0], msg);
             } else {
@@ -50,7 +50,7 @@
                 });
             }
             c.value = '';
-            f.value = ''; // Clear file input after sending
+            f.value = '';
         };
     });
 })();
