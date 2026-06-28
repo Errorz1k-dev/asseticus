@@ -1,7 +1,7 @@
 import os
 
-IMAGE_DIR = "images"  # Folder containing your images
-README_PATH = "README.md"
+IMAGE_DIR = "assets"  # Folder containing your images
+README_PATH = "assets/readme.md"
 COLUMNS = 3  # Adjust how many columns you want in your table
 
 extensions = (".png", ".jpg", ".jpeg", ".gif", ".webp")
