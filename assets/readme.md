@@ -23,4 +23,17 @@
     <td align="center"><img src="./smoker.jpg" width="250"></td>
     <td align="center"><img src="./smoky.jpg" width="250"></td>
   </tr>
+  <tr>
+    <td colspan="3" align="center" style="font-weight: bold;">a</td>
+  </tr>
+  <tr>
+    <td align="center"><b>Errorz1k.png</b></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./a/Errorz1k.png" width="250"></td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
