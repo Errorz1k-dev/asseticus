@@ -1,0 +1,33 @@
+name: Generate Image Table
+
+on:
+  push:
+    paths:
+      - 'assets/**' # Runs whenever files are added/changed in the images folder
+
+permissions:
+  contents: write # Gives the action permission to update your README
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run script
+      run: python /scripts/imagetotable.py
+
+    - name: Commit and Push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add README.md
+        # Only commit if the README actually changed
+        git diff-index --quiet HEAD || git commit -m "chore: auto-update image table in README"
+        git push
