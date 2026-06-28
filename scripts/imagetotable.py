@@ -1,8 +1,11 @@
 import os
 
-# Moving up one level to look inside the repository root
-IMAGE_DIR = "../assets"  
-README_PATH = "../README.md"
+# Get the directory where this script file actually lives (repo/scripts/)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Go up one level to the repository root, then into the folders
+IMAGE_DIR = os.path.join(SCRIPT_DIR, "..", "assets")
+README_PATH = os.path.join(SCRIPT_DIR, "..", "README.md")
 COLUMNS = 3  
 
 extensions = (".png", ".jpg", ".jpeg", ".gif", ".webp")
@@ -19,7 +22,7 @@ for i in range(0, len(images), COLUMNS):
     table_html += "  <tr>\n"
     for j in range(COLUMNS):
         if i + j < len(images):
-            # The HTML path in the README still needs to point to "assets/..." relative to the README location
+            # The HTML path written to the README still needs to be relative to the README
             img_path = f"assets/{images[i+j]}"
             table_html += f'    <td align="center"><img src="{img_path}" width="200px"/><br/><b>{images[i+j]}</b></td>\n'
         else:
@@ -30,8 +33,8 @@ table_html += "</table>"
 with open(README_PATH, "r", encoding="utf-8") as f:
     content = f.read()
 
-START_MARKER = "''t"
-END_MARKER = "t''"
+START_MARKER = "..,."
+END_MARKER = ".,.."
 
 if START_MARKER in content and END_MARKER in content:
     before = content.split(START_MARKER)[0]
@@ -40,6 +43,6 @@ if START_MARKER in content and END_MARKER in content:
     
     with open(README_PATH, "w", encoding="utf-8") as f:
         f.write(new_content)
-    print("Success: README.md image table updated via scripts folder.")
+    print("Success: README.md image table updated dynamically.")
 else:
-    print("Error: Could not find markers in README.md")
+    print(f"Error: Could not find markers {START_MARKER} and {END_MARKER} in README.md")
