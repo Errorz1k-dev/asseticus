@@ -4,10 +4,10 @@
 
 <table>
   <tr>
-    <td colspan="3" align="center" style="font-weight: bold;">Errorz1k.png | cutie1.jpg | cutie2.jpg</td>
+    <td colspan="3" align="center" style="font-weight: bold;">Errorz1k1.png | cutie1.jpg | cutie2.jpg</td>
   </tr>
   <tr>
-    <td><img src="./Errorz1k.png" width="250"></td>
+    <td><img src="./Errorz1k1.png" width="250"></td>
     <td><img src="./cutie1.jpg" width="250"></td>
     <td><img src="./cutie2.jpg" width="250"></td>
   </tr>
