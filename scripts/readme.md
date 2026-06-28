@@ -1,1 +1,3 @@
-# **scripts for different shit**
+<div align="center">
+  # **scripts for different shit**
+</div>
