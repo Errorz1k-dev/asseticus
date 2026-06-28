@@ -9,41 +9,62 @@ def generate_image_table():
         os.makedirs(assets_dir)
 
     valid_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
-    images = []
+    
+    # Structure data by subfolder group
+    # Key: Subfolder path relative to assets (or "" for root assets folder)
+    # Value: List of tuples (filename, relative_path_for_src)
+    structure = {}
 
     for root, _, files in os.walk(assets_dir):
+        # Determine the subfolder name relative to assets/
+        subfolder = os.path.relpath(root, assets_dir)
+        if subfolder == ".":
+            subfolder = ""
+        else:
+            subfolder = subfolder.replace(os.sep, '/')
+
         for file in files:
             if file.lower().endswith(valid_extensions):
-                relative_path = os.path.relpath(os.path.join(root, file), assets_dir)
-                relative_path = relative_path.replace(os.sep, '/')
-                images.append(relative_path)
-                
-    images.sort()
-    
+                rel_path = os.path.relpath(os.path.join(root, file), assets_dir).replace(os.sep, '/')
+                if subfolder not in structure:
+                    structure[subfolder] = []
+                structure[subfolder].append((file, rel_path))
+
     columns = 3
     table_lines = ["<table>"]
-    
-    for i in range(0, len(images), columns):
-        row_images = images[i:i+columns]
+
+    # Sort groups: Root assets folder first, then subfolders alphabetically
+    sorted_groups = sorted(structure.keys(), key=lambda x: (x != "", x))
+
+    for group in sorted_groups:
+        items = sorted(structure[group], key=lambda x: x[0])
         
-        # Path string for the group (e.g., "folder/image.png" or "img1.png | img2.png")
-        path_label = " | ".join(row_images)
-        
-        # Row 1: Spanned Header for names/paths
-        table_lines.append(f'  <tr>\n    <td colspan="{columns}" align="center" style="font-weight: bold;">{path_label}</td>\n  </tr>')
-        
-        # Row 2: Images
-        img_cells = []
-        for img in row_images:
-            img_cells.append(f'    <td><img src="./{img}" width="250"></td>')
+        # Add a subfolder header row ONLY if the images belong to a subfolder
+        if group:
+            table_lines.append(f'  <tr>\n    <td colspan="{columns}" align="center" style="font-weight: bold;">{group}</td>\n  </tr>')
+
+        # Chunk the images in this group into rows of 3
+        for i in range(0, len(items), columns):
+            row_items = items[i:i+columns]
             
-        # Pad empty cells if columns are not filled completely
-        if len(row_images) < columns:
-            for _ in range(columns - len(row_images)):
-                img_cells.append('    <td></td>')
-                
-        table_lines.append("  <tr>\n" + "\n".join(img_cells) + "\n  </tr>")
-        
+            # Row 1: Image names
+            name_cells = []
+            for name, _ in row_items:
+                name_cells.append(f'    <td align="center"><b>{name}</b></td>')
+            if len(row_items) < columns:
+                for _ in range(columns - len(row_items)):
+                    name_cells.append('    <td></td>')
+            table_lines.append("  <tr>\n" + "\n".join(name_cells) + "\n  </tr>")
+
+            # Row 2: Images directly below names
+            img_cells = []
+            for _, src_path in row_items:
+                img_cells.append(f'    <td align="center"><img src="./{src_path}" width="250"></td>')
+            if len(row_items) < columns:
+                for _ in range(columns - len(row_items)):
+                    img_cells.append('    <td></td>')
+            table_lines.append("  <tr>\n" + "\n".join(img_cells) + "\n  </tr>")
+
     table_lines.append("</table>")
     table_content = "\n".join(table_lines)
 
