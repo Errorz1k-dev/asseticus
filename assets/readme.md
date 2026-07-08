@@ -5,21 +5,21 @@
 <table>
   <tr>
     <td align="center"><b>Errorz1k.png</b></td>
-    <td align="center"><b>best-head.png</b></td>
     <td align="center"><b>cutie1.jpg</b></td>
+    <td align="center"><b>cutie2.jpg</b></td>
   </tr>
   <tr>
     <td align="center"><img src="./Errorz1k.png" width="250"></td>
-    <td align="center"><img src="./best-head.png" width="250"></td>
     <td align="center"><img src="./cutie1.jpg" width="250"></td>
+    <td align="center"><img src="./cutie2.jpg" width="250"></td>
   </tr>
   <tr>
-    <td align="center"><b>cutie2.jpg</b></td>
+    <td align="center"><b>errorz1k-3d.png</b></td>
     <td align="center"><b>errorz1k-blink.gif</b></td>
     <td align="center"><b>errorz1k-pfp.gif</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="./cutie2.jpg" width="250"></td>
+    <td align="center"><img src="./errorz1k-3d.png" width="250"></td>
     <td align="center"><img src="./errorz1k-blink.gif" width="250"></td>
     <td align="center"><img src="./errorz1k-pfp.gif" width="250"></td>
   </tr>
