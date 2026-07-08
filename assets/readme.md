@@ -14,22 +14,22 @@
     <td align="center"><img src="./cutie2.jpg" width="250"></td>
   </tr>
   <tr>
+    <td align="center"><b>errorz1k-3d.gif</b></td>
     <td align="center"><b>errorz1k-3d.png</b></td>
     <td align="center"><b>errorz1k-blink.gif</b></td>
-    <td align="center"><b>errorz1k-pfp.gif</b></td>
   </tr>
   <tr>
+    <td align="center"><img src="./errorz1k-3d.gif" width="250"></td>
     <td align="center"><img src="./errorz1k-3d.png" width="250"></td>
     <td align="center"><img src="./errorz1k-blink.gif" width="250"></td>
-    <td align="center"><img src="./errorz1k-pfp.gif" width="250"></td>
   </tr>
   <tr>
-    <td align="center"><b>head.gif</b></td>
+    <td align="center"><b>errorz1k-pfp.gif</b></td>
     <td align="center"><b>shrek_smith.jpg</b></td>
     <td align="center"><b>smoker.jpg</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="./head.gif" width="250"></td>
+    <td align="center"><img src="./errorz1k-pfp.gif" width="250"></td>
     <td align="center"><img src="./shrek_smith.jpg" width="250"></td>
     <td align="center"><img src="./smoker.jpg" width="250"></td>
   </tr>
