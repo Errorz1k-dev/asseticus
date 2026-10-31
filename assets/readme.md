@@ -27,24 +27,34 @@
     <td align="center"><img src="./heads/better-head.png" width="250"></td>
   </tr>
   <tr>
+    <td align="center"><b>body.png</b></td>
     <td align="center"><b>errorz1k-blink.gif</b></td>
     <td align="center"><b>errorz1k-pfp.gif</b></td>
-    <td align="center"><b>errorz1k-static.png</b></td>
   </tr>
   <tr>
+    <td align="center"><img src="./heads/body.png" width="250"></td>
     <td align="center"><img src="./heads/errorz1k-blink.gif" width="250"></td>
     <td align="center"><img src="./heads/errorz1k-pfp.gif" width="250"></td>
-    <td align="center"><img src="./heads/errorz1k-static.png" width="250"></td>
   </tr>
   <tr>
+    <td align="center"><b>errorz1k-static.png</b></td>
     <td align="center"><b>hat.png</b></td>
     <td align="center"><b>head.gif</b></td>
-    <td align="center"><b>head.png</b></td>
   </tr>
   <tr>
+    <td align="center"><img src="./heads/errorz1k-static.png" width="250"></td>
     <td align="center"><img src="./heads/hat.png" width="250"></td>
     <td align="center"><img src="./heads/head.gif" width="250"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>head.png</b></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td align="center"><img src="./heads/head.png" width="250"></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <td colspan="3" align="center" style="font-weight: bold;">website</td>
